@@ -2,6 +2,8 @@
 このリポジトリは、過去に制作した会員サイトです。
 WordPressをベースに構築しました。
 
+screenshot
+
 ## 使用技術
 - HTML
 - CSS(SCSS)
