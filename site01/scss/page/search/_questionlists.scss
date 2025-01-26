@@ -1,0 +1,31 @@
+// 検索結果
+// 質問リスト
+
+.w-page-question {
+  .content.result {
+    // 質問リスト
+    .question-lists {
+      display: block;
+      border: 1px solid $color-line;
+      border-radius: 5px;
+    } // .question-lists
+    
+    // open時の変化
+    .question-lists__list {
+      &.open {
+        .question-title {
+          &::after {
+            background: url(../img/minus_box_blue_24px.png) no-repeat center center;
+          }
+        }
+      }
+    }
+  
+    // 検索結果0の場合
+    .search-result-alert {
+      text-align: center;
+      padding-top: 70px;
+      padding-bottom: 100px;
+    }
+  }
+}

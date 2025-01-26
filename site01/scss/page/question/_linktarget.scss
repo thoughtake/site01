@@ -1,0 +1,13 @@
+// 自動リンク
+.w-page-question {
+  .link-target {
+    a {
+      color: $color-link-blue;
+      word-break: break-all;
+      &:hover {
+        text-decoration: underline;
+        text-decoration-color: $color-link-blue;
+      }
+    }
+  }
+}

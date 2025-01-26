@@ -1,0 +1,159 @@
+// 質問リスト
+.w-page-question {
+  .question-lists {
+    display: none;
+    &__list {
+      border-bottom: 1px solid $color-line;
+      // 質問タイトル
+      .question-title {
+        position: relative;
+        cursor: pointer;
+        width: 100%;
+        min-height: 50px;
+        padding-left: 54px;
+        padding-right: 43px;
+        font-size: 1rem;
+        @include mq(md) {
+          font-size: 1.125rem;
+        }
+        span {
+          display: inline-block;
+          margin-top: 12px;
+          margin-bottom: 12px;
+        }
+        &.open {
+          span {
+            color: $color-red;
+          }
+        }
+        // 質問タイトルの右アイコン設定
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: 20px;
+          transform: translateY(-50%);
+          background: url(../img/add_box_blue_24px.png) no-repeat center center;
+          height: 24px;
+          width: 24px;
+        }
+        // 質問タイトルの左アイコン設定
+        &::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 20px;
+          transform: translateY(-50%);
+          width: 25px;
+          height: 25px;
+          background: url(../img/question/question.png) no-repeat center center / cover;
+        }
+      } // .question-title
+      // 質問詳細
+      .question-detail {
+        display: none;
+        // 質問内容
+        .question-text {
+          padding: 20px;
+        }
+        // 画像
+        .picture-wrapper {
+          display: flex;
+          flex-wrap: wrap;
+          width: 100%;
+          padding: 20px;
+          .picture-box {
+            margin-left: 10px;
+            margin-top: 10px;
+            height: 200px;
+            width: calc((100% - 10px) / 2);
+            &:nth-child(odd) {
+              margin-left: 0;
+            }
+            &:nth-child(-n+2) {
+              margin-top: 0;
+            }
+            @include mq(md) {
+              margin-left: 10px;
+              margin-top: 0;
+              width: calc((100% - 10px * 3) / 4);
+              &:nth-child(odd) {
+                margin-left: 10px;
+              }
+              &:first-child {
+                margin-left: 0;
+              }
+            }
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+              cursor: pointer;
+            } // img
+          } // picture-box
+        } // .picture-wrapper
+        // 添付ファイル
+        .file-wrapper {
+          padding: 20px;
+          a {
+            position: relative;
+            color: $color-link-blue;
+            span {
+              margin-left: 23px;
+            }
+            &::after {
+              position: absolute;
+              display: block;
+              content: "";
+              top: 50%;
+              left: 0;
+              width: 20px;
+              height: 20px;
+              transform: translateY(-50%);
+              background: url(../img/question/file-blue.png) no-repeat center center / cover;
+            }
+            &:hover {
+              text-decoration: underline;
+              text-decoration-color: $color-link-blue;
+            }
+          }
+        }
+        // 回答
+        .answer-box {
+          border-top: 1px solid $color-line;
+          padding: 20px 15px;
+          // 回答者
+          .answer-name {
+            margin-bottom: 20px;
+            font-weight: bold;
+            span {
+              position: relative;
+              &::after {
+                position: absolute;
+                bottom: 2px;
+                left: 0;
+                content: "";
+                width: 100%;
+                height: 0.3em;
+                background-color: rgba($color-main-medium, 0.6);
+              }
+            }
+          }
+          // 回答内容
+          .answer-text {
+            padding: 0 5px;
+          }
+        }
+      } // .question-detail
+  
+      // open時の変化
+      &.open {
+        .question-title {
+          &::after {
+            background: url(../img/minus_box_blue_24px.png) no-repeat center center;
+          }
+        }
+      }
+    } // &__list
+  } // .question-lists
+}

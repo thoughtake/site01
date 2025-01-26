@@ -1,0 +1,15 @@
+// 検索結果
+// 検索ワード詳細
+.w-page-question {
+  .search-detail {
+    margin-bottom: 30px;
+    .search-word {
+      font-size: 1rem !important;
+      &__word {
+        margin-left: 10px;
+        font-weight: bold;
+        font-size: 20px;
+      }
+    }
+  }
+}

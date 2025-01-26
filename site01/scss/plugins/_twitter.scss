@@ -1,0 +1,51 @@
+#share-twitter {
+  display: inline-block;
+  text-decoration: none;
+  position: relative;
+  background-color: transparent;
+  color: $color-white;
+  font-weight: bold;
+  padding: 5px 5px 5px 35px;
+  border: 2px solid $color-white;
+  border-radius: 5px;
+  background-image: linear-gradient(to right, $color-twitter 50%, $color-white 50%);
+  background-position: 0 0;
+  background-size: 200% auto;
+  transition: .3s;
+  width: auto;
+  height: auto;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 25px;
+    background: url(../img/twitter_white.svg) no-repeat center center / contain;
+  }
+  &:hover {
+    background-position: -100% 0;
+    color: $color-twitter;
+    border: 2px solid $color-twitter;
+    &::before {
+      background: url(../img/twitter_blue.svg) no-repeat center center / contain;
+    }
+  }
+  &.twitter-front {
+    box-sizing: content-box;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-image: linear-gradient(to right, $color-twitter 50%, transparent 50%);
+    margin-left: 10px;
+    &:hover {
+      border: .5px solid $color-twitter;
+    }
+    &::before {
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

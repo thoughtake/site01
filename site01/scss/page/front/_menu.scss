@@ -1,0 +1,130 @@
+$square-margin-sp: 10px;
+$square-margin-md: 20px;
+
+.w-front-page {
+  img {
+    pointer-events: none;
+  }
+  // 主なスタイルは_articlelist.scssに記載
+  .menu-title {
+    font-size: 1.5rem;
+    @include mq(md) {
+      font-size: 2rem;
+    }
+  }
+  .menu-lists {
+    // 指定がsquareのとき
+    &.menu-square {
+      display: flex;
+      flex-wrap: wrap;
+      & > li:nth-of-type(n+2) {
+        margin-top: 0;
+      }
+      & > li {
+        margin-left: $square-margin-sp;
+        margin-bottom: 0;
+        @include mq(md) {
+          margin-left: $square-margin-md;
+        }
+      }
+      & > li:nth-of-type(3n+1) {
+        margin-left: 0;
+      }
+      & > li:nth-of-type(n+4) {
+        margin-top: $square-margin-sp;
+        @include mq(md) {
+          margin-top: $square-margin-md;
+        }
+      }
+      .menu-lists__list {
+        position: relative;
+        width: calc((33.33333333% - #{$square-margin-sp} * 2 / 3 ) - 1px);
+        background: transparent url(../img/square_bg.png) repeat center center/ 200px 200px;
+        @include mq(md) {
+          width: calc((33.33333333% - #{$square-margin-md} * 2 / 3 ) - 1px);
+        }
+        &::before {
+          content: "";
+          display: block;
+          padding-top: 100%;
+          @include mq(lg) {
+            padding-top: 60%;
+          }
+        }
+        & > a {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          .list-title {
+            padding: 10px 0;
+            font-size: 0.8rem;
+            height: 30%;
+            background-color: transparent;
+            border:none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include mq(sm) {
+              font-size: 1.125rem;
+            }
+            @include mq(md) {
+              font-size: 1.125rem;
+            }
+            @include mq(xl) {
+              font-size: 1.3rem
+            }
+          }
+          .list-content {
+            height: 70%;
+            padding: 10px;
+            @include mq(sm) {
+              padding: 15px
+            }
+            img {
+              width: 100%;
+            }
+            &__wrapper {
+              display: none;
+            }
+          }
+        }
+      }      
+    }
+  }
+
+  // 記事一覧へボタン
+  .index-link {
+    margin-top: 30px;
+    text-align: center;
+    a {
+      font-weight: bold;
+      font-size: 1.125rem;
+      padding: 10px 50px 10px 55px;
+      color: $color-white;
+      background-color: $color-link-blue;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      &:hover {
+        color: $color-main;
+        &::before {
+          border-color: $color-main;
+        }
+      }
+      &::before {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%) rotate(45deg);
+        content: "";
+        display: block;
+        width: 5px;
+        height: 5px;
+        border-top: 3px solid $color-white;
+        border-right: 3px solid $color-white;
+        z-index: calc(#{map-get($layer, 'default')} + 2);
+      }
+    }
+  }
+}

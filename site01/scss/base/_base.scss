@@ -1,0 +1,165 @@
+$header-hight: 50px;
+$footer-hight: 40px;
+
+@media screen and (max-width: 600px) {
+  #wpadminbar {
+    position: fixed!important;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family-base;
+  color: $color-text;
+  // position: relative;
+  font-size: 1rem;
+  overflow-x: hidden;
+}
+
+p {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  @include mq(md) {
+    font-size: 1rem;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  overflow-wrap: break-word;
+}
+
+.container {
+  width: 1280px;
+  max-width: 100%;
+  padding: 0 5%;
+  margin: 0 auto;
+  overflow-x: hidden;
+  @include mq(md) {
+    padding: 0 40px;
+  }
+}
+
+.w-title-wrapper {
+  text-align: center;
+}
+
+.w-content-wrapper {
+  margin-bottom: 30px;
+}
+
+.w-other-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// アコーディオン ※過去の質問には反映されていない
+.js-accordion {
+  &__target {
+    cursor: pointer;
+  }
+  &__content {
+    display: none;
+  }
+}
+  
+// ホバー時のアニメーション
+.btn {
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: inline-block;
+  outline: none;
+  transition: .2s;
+  z-index: map-get($layer, 'default');
+  span {
+    position: relative;
+    z-index: calc(#{map-get($layer, 'default')} + 2);
+  }
+}
+
+.bgleft {
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: calc(#{map-get($layer, 'default')} + 1);
+    background: $color-yellow; 
+    width: 100%;
+    height: 100%;
+    transition: transform .6s cubic-bezier(0.8, 0 , 0.2, 1) 0s;
+    transform: scale(0, 1);
+    transform-origin: right top;
+  }
+  &:hover {
+    &::after {
+      transform-origin: left top;
+      transform: scale(1, 1);
+    }
+  }
+}
+
+// ページナビゲーション
+.wp-pagenavi {
+  height: 80px;
+  text-align: center;
+  padding-top: 30px;  
+  color: $color-main !important;
+  a {
+    border: 1px solid $color-main-medium !important;
+  }
+  span {
+    border: 1px solid $color-main-medium !important;
+    &.current {
+      border: 1px solid $color-main !important;
+    }
+  }
+}
+
+  // 目次
+  #toc_container {
+    position: relative;
+    border: none !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    text-align: start;
+    margin: 2rem auto 5rem !important;
+    padding: 10px !important;
+    border-radius: 10px;
+    font-size: 0.875rem !important;
+    background: $color-white url(../img/square_bg.png) repeat center center/ 200px 200px !important;
+    @include mq(md) {
+      font-size: 1rem !important;
+      padding: 20px !important;
+    }
+    a {
+      color: $color-link-blue;
+    }
+    &::after {
+      position: absolute;
+      top: -40px;
+      right: -20px;
+      transform: rotate(20deg);
+      content: "";
+      width: 100px;
+      height: 100px;
+      background: transparent url(../img/book.png) no-repeat center center / contain;
+      @include mq(md) {
+        top: -50px;
+        right: -50px;
+        width: 130px;
+        height: 130px;       
+      }
+    }
+    &.contracted {
+      &::after {
+        display: none;
+      }
+    }
+  }

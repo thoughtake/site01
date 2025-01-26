@@ -1,0 +1,140 @@
+@mixin mq($breakpoint: md) {
+
+  @media #{map-get($breakpoints, $breakpoint)} {
+
+    @content;
+  }
+}
+
+@mixin heading01 {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid $color-main;
+  color: $color-main;
+  margin: 10px 0 30px;
+  padding: 10px 0;
+  &::before {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    display: block;
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-color: $color-orange;
+  }
+  @include mq(md) {
+    font-size: 1.5rem;
+  }
+}
+
+@mixin heading02 {
+  position: relative;
+  background: $color-main;
+  // background-color: $color-main-medium;
+  padding: 0.6em 0.3em;
+  border-radius: 0 5px 5px 5px;
+  color: $color-white;
+  // color: $color-main;
+  margin: 60px 0 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  // font-weight: bold;
+  &::after {
+    position: absolute;
+    content: "\002713 Check";
+    background: $color-main;
+    // background-color: $color-main-medium;
+    // color: $color-main;
+    color: $color-white;
+    border-bottom: 1px solid $color-white;
+    font-weight: normal;
+    left: 0;
+    bottom: 100%;
+    border-radius: 5px 5px 0 0;
+    padding: .1em .5em 0em .3em;
+    font-size: .7em;
+    letter-spacing: 0.005em;
+  }
+
+  // display: inline-block;
+  // position: relative;
+  // font-size: 1.1rem;
+  // font-weight: bold;
+  // text-align: center;
+  // margin: 60px 0 30px;
+  // &::after {
+  //   position: absolute;
+  //   bottom: 0;
+  //   left: 50%;
+  //   transform: translateX(-50%);
+  //   content: "";
+  //   width: 120%;
+  //   height: 10px;
+  //   background-color: $color-yellow;
+  //   border-radius: 50%;
+  //   z-index: -1;
+  // }
+  @include mq(md) {
+    font-size: 1.3rem;
+    width: 100%;
+    // &::after {
+    //   width: 100%;
+    // }
+  }
+}
+
+@mixin heading03 {
+  font-size: 1rem;
+  margin: 60px auto 30px;
+  padding: 0.6em 0.3em;
+  background: $color-main-medium;
+  border-left: 8px double $color-main;
+  color: $color-main;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  @include mq(md) {
+    font-size: 1.125rem;
+  }
+}
+
+@mixin heading04 {
+  font-size: 1rem;
+  padding: .3em .3em .3em 10px;
+  margin: 60px auto 30px;
+  text-align: start;
+  border-left: 5px solid $color-main-medium;
+
+  @include mq(md) {
+    font-size: 1.125rem;
+  }   
+}
+
+@mixin heading05 {
+  position: relative;
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: bold;
+  margin: 50px 0 30px;
+  text-align: start;
+  &::after {
+    position: absolute;
+    bottom: 3px;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 6px;
+    background-color: $color-main-medium;
+    z-index: -1;
+  }
+  @include mq(md) {
+    font-size: 1rem;
+  }   
+}

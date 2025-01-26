@@ -1,0 +1,248 @@
+// サイドバー
+
+$archive-width-sp: 80%;
+$archive-width-md: 30%;
+
+.sidebar-archive {
+  position: fixed;
+  top: $header-hight;
+  right: 0;
+  display: block;
+  height: calc(100vh - #{$header-hight});
+  width: $archive-width-sp;
+  transition: all .5s;
+  transform: translateX(100%);
+  overflow-x: hidden;
+  z-index: map-get($layer, 'drawer');  
+  background: $color-main url(../img/square_bg.png) repeat center center/ 200px 200px;
+  padding-bottom: 100px;
+  color: $color-white;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display:none;
+  }
+  @include mq(md) {
+    width: $archive-width-md;
+    padding-top: 50px;
+  }
+  &.open {
+    transform: translateX(0);
+  } 
+  // サイドバータイトル
+  .archive-title {
+    position: relative;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 5px 0;
+    background: $color-white url(../img/square_bg.png) repeat center center/ 200px 200px;
+    color: $color-main;
+    @include mq(md) {
+      font-size: 1.5rem;
+    }
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      // display: block;
+      display: none;
+      width: 85%;
+      height: 3px;
+      content: "";
+      background-color: $color-white;
+      border-radius: 1.5px;
+    }
+  }
+  // サイドバーリスト
+  .archive-lists {
+    padding: 0 15px;
+    margin-bottom: 30px;
+    &.top {
+      margin-top: 10px;
+    }
+    &__list {
+      position: relative;
+      height: 50px;
+      font-weight: bold;
+      margin-bottom: 5px;
+      overflow: hidden;
+      a {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        font-size: 0.8rem;
+        text-align: center;
+        line-height: 50px;
+        text-decoration: none;
+        color: inherit;
+        @include mq(sm) {
+          font-size: 1rem;
+        }
+        &::before, &::after {
+          content: "";
+          position: absolute;
+          border: solid $color-white;
+          border-radius: 2px;
+          width: 10px;
+          height: 10px;
+          transition: all 0.3s ease-in-out;
+        }
+        &::before {
+          top: 0;
+          left: 0;
+          border-width: 3px 0 0 3px;
+        }
+        &::after {
+          bottom: 0;
+          right: 0;
+          border-width: 0 3px 3px 0;
+        }
+        &:hover {
+          &::before, &::after {
+            width: calc(100% - 3px);
+            height: calc(100% - 3px);
+          }
+        }
+        
+      }
+    }
+    &__link {
+      height: 50px;
+      font-weight: bold;
+      margin-bottom: 5px;
+      a {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        line-height: 50px;
+        padding: 0 10px;
+        text-decoration: none;
+        color: inherit;
+        &::after {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          display: block;
+          width: 50%;
+          height: 3px;
+          content: "";
+          background-color: $color-white;
+          border-radius: 1.5px;
+          transition: all 0.3s ease-in-out;
+        }
+        &:hover {
+          &::after {
+            width: 80%;
+          }
+        }
+      }      
+    }
+  }
+
+  // 閉じるボタン
+  // タブレット以上のみ
+  .archive-button-close {
+    display: none;
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    @include mq(md) {
+      display: block;
+    }
+    span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transition: .1s;
+      &:nth-of-type(1) {
+        display: inline-block;
+        width: 100%;
+        height: 3px;
+        background-color: $color-white;
+        top: calc(50% + 6px);
+        transform: translate(-50%, -50%) rotate(0);
+      }
+      &:nth-of-type(2) {
+        display: inline-block;
+        width: 100%;
+        height: 3px;
+        background-color: $color-white;
+        transform: translate(-50%, -50%);
+      }
+      &:nth-of-type(3) {
+        display: inline-block;
+        width: 100%;
+        height: 3px;
+        background-color: $color-white;
+        top: calc(50% - 6px);
+        transform: translate(-50%, -50%) rotate(0);
+      } 
+    }
+    &.open {
+      span {
+        &:nth-of-type(1) {
+          top: 50%;
+          transform: translate(-50%, -50%) rotate(45deg);
+        }
+        &:nth-of-type(2) {
+          display: none;
+        }
+        &:nth-of-type(3) {
+          top: 50%;
+          transform: translate(-50%, -50%) rotate(-45deg);
+        }          
+      }
+    }  
+  }
+}
+
+
+// 開けるボタン
+// タブレット以上のみ
+.archive-button-open {
+  display: none;
+  position: fixed;
+  top: $header-hight;
+  right: 0;
+  transform: translateX(0);
+  content: "";
+  width: 40px;
+  height: 40px;
+  background-color: $color-main;
+  border-radius: 10px 0 0 10px;
+  cursor: pointer;
+  transition: all .5s .5s;
+  z-index: calc(#{map-get($layer, 'drawer') - 1});
+  &.open {
+    transform: translateX(100%);
+  }
+  span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 3px;
+    background-color: $color-white;
+    &:nth-of-type(1) {
+      top: calc(50% + 6px);
+    }
+    &:nth-of-type(3) {
+      top: calc(50% - 6px);
+    }
+  }
+  @include mq(md) {
+    display: block;
+  }
+}

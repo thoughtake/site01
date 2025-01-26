@@ -1,0 +1,1 @@
+<li class="archive-lists__list"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li><!-- /.archive-lists__list -->

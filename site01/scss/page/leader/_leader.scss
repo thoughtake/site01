@@ -1,0 +1,30 @@
+.w-page-leader {
+  > .main > .container {
+    @include mq(lg) {
+      max-width: 50%;
+      min-width: 500px;
+    }
+  }
+  > .main > .content > .container {
+    @include mq(lg) {
+      max-width: 50%;
+      min-width: 500px;
+    }    
+  }
+  h1 {
+    @include heading01;
+  }  
+  .image-box {
+    margin-top: 50px;
+    img {
+      display: block;
+      width: 100%;
+      object-fit: contain;
+      object-position: center center;
+      @include mq(md) {
+        width: 60%;
+        margin: 0 auto;
+      }
+    }
+  }
+}

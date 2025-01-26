@@ -1,0 +1,29 @@
+.w-page-question {
+  > .main > .container {
+    @include mq(lg) {
+      max-width: 50%;
+      min-width: 500px;
+    }
+  }
+  > .main > .content > .container {
+    @include mq(lg) {
+      max-width: 50%;
+      min-width: 500px;
+    }    
+  }
+  > .main > .search-form > .container {
+    @include mq(lg) {
+      max-width: 50%;
+      min-width: 500px;
+    }        
+  }
+  > .main > .search-detail > .container {
+    @include mq(lg) {
+      max-width: 50%;
+      min-width: 500px;
+    }        
+  }
+  h1 {
+    @include heading01;
+  }
+}

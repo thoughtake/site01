@@ -1,0 +1,69 @@
+.w-index {
+  > .main > .container {
+    @include mq(lg) {
+      max-width: 50%;
+      min-width: 500px;
+    }
+  }
+  > .main > .content > .container {
+    @include mq(lg) {
+      max-width: 50%;
+      min-width: 500px;
+    }    
+  }
+  h1 {
+    @include heading01;
+  }
+  .category_select-wrapper {
+    position: relative;
+    width: 60%;
+    height: 40px;
+    margin: 60px auto;
+    z-index: map-get($layer, 'default');
+    .category_select-comment {
+      position: absolute;
+      top: -45px;
+      left: -55px;
+      background-color: $color-main;
+      color: $color-white;
+      border-radius: 10px;
+      padding: 5px;
+      font-weight: bold;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      z-index: calc(#{map-get($layer, 'default')} + 2) ;
+      &::before {
+        position: absolute;
+        bottom: -25px;
+        right: 10px;
+        content: "";
+        border-top: 20px solid rgba(0, 0, 0, 0.25);
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 5px solid transparent;
+        filter: blur(2px);
+        transform: rotate(-30deg);
+        z-index: calc(#{map-get($layer, 'default')} + 1) ;
+      }
+      &::after {
+        position: absolute;
+        bottom: -20px;
+        right: 10px;
+        content: "";
+        border-top: 20px solid $color-main;
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 5px solid transparent;
+        transform: rotate(-30deg);
+        z-index: calc(#{map-get($layer, 'default')} + 3) ;
+      }
+    }
+  }
+  .category_select {
+    width: 100%;
+    height: 100%;
+    border: 2px solid $color-main;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+  }
+}

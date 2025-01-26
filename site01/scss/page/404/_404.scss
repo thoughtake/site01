@@ -1,0 +1,18 @@
+.not-found {
+  height: 100vh;
+  padding-top: 100px;
+  h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  a {
+    color: $color-main;
+    text-decoration: underline;
+    :hover {
+     cursor: pointer;
+     opacity: 0.7;
+    }
+  }
+}

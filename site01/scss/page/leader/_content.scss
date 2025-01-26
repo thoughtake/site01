@@ -1,0 +1,116 @@
+$leader-img-size-sp: 45px;
+$leader-sub_leader-width-sp: 120px;
+$leader-sns-size-sp: 20px;
+
+.w-page-leader {
+  .leader-lists {
+    padding: 15px;
+    li:nth-of-type(n+2) {
+      margin-top: 30px;
+    }
+    // リーダーひとりひとり
+    &__list {
+      // 名前とイメージ
+      &__name-wrapper {
+        position: relative;
+        display: flex;
+        padding: 0 35px 0 10px;
+        align-items: center;
+        img {
+          display: inline-block;
+          height: $leader-img-size-sp;
+          width: $leader-img-size-sp;
+          border-radius: 50%;
+          object-fit: cover;
+          object-position: center center;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: 5px;
+          transform: translateY(-50%);
+          display: block;
+          background: url(../img/add_box_blue_24px.png) no-repeat center center;
+          height: 24px;
+          width: 24px;
+        }
+        &.-open {
+          &::after {
+            background: url(../img/minus_box_blue_24px.png) no-repeat center center;
+          }
+        }        
+      }
+      // 名前
+      &__name {
+        width: calc(100% - #{$leader-img-size-sp} - #{$leader-sub_leader-width-sp});
+        padding-left: 10px;
+        font-weight: bold;
+        font-size: 1.125rem;
+      }
+      // サブリーダー
+      &__leader-class {
+        width: $leader-sub_leader-width-sp;
+        font-size: 16px;
+        line-height: 16px;
+        padding-right: 15px;
+        font-weight: bold;
+        text-align: right;
+        color: $color-main;
+      }
+      // コメントとSNS
+      &__content {
+        margin-top: 10px;
+        padding: 10px;
+        border: 1px solid $color-main;
+        border-radius: 10px;
+        a {
+          color: $color-link-blue;
+        }
+        &__comment {
+          margin-bottom: 15px;
+        }
+        // SNS
+        &__sns {
+          position: relative;
+          padding-left: 30px;
+          overflow-wrap: break-word;
+          &::after {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            content: "";
+            width: $leader-sns-size-sp;
+            height: $leader-sns-size-sp;
+          }
+          &.twitter {
+            &::after {
+              background: transparent url(../img/twitter.png) no-repeat center center / cover;
+            }
+          }
+          &.discord {
+            &::after {
+              background: transparent url(../img/discord.png) no-repeat center center / cover;
+            }
+          }
+          &.line {
+            &::after {
+              background: transparent url(../img/line.png) no-repeat center center / cover;
+            }
+          }
+          &.instagram {
+            &::after {
+              background: transparent url(../img/instagram.png) no-repeat center center / cover;
+            }
+          }
+          &.email {
+            &::after {
+              background: transparent url(../img/email.png) no-repeat center center / cover;
+            }
+          }
+        }
+      }
+    }
+  }
+}

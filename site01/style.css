@@ -1,0 +1,42 @@
+/*
+Theme Name: レンタルスペース研究所_v3.1
+Author: Soto Takeishi
+License: GNU General Public License v2 or later
+*/
+
+/* 追加分 */
+
+.menu-lists__list > a .list-content .list-category__content {
+  // background-color: #2A8840 !important;
+  background-color: #008DB7 !important;
+  color: #fff !important;
+}
+
+.menu-lists__list > a .list-content .list-category__movie {
+  // background-color: #FF1F3D !important;
+  background-color: #008DB7 !important;
+  color: #fff !important;
+}
+
+.menu-lists__list > a .list-content .list-category__other {
+  // background-color: #25489C !important;
+  background-color: #008DB7 !important;
+  color: #fff !important;
+}
+
+.menu-lists__list > a .list-content .list-category__voice {
+  // background-color: #F6C863 !important;
+  background-color: #008DB7 !important;
+  color: #fff !important;
+}
+
+.menu-lists__list > a .list-content .list-category__announce {
+  // background-color: #003865 !important;
+  background-color: #008DB7 !important;
+  color: #fff !important;
+}
+
+.menu-lists__list > a .list-content .list-category__link {
+  background-color: #008DB7 !important;
+  color: #fff !important;
+}

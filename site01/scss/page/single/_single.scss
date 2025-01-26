@@ -1,0 +1,87 @@
+.w-single {
+  > .main > .container {
+    @include mq(lg) {
+      max-width: 50%;
+      min-width: 500px;
+    }
+  }
+  a {
+    color: $color-link-green;
+    text-decoration: underline;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    @include mq(md) {
+      max-width: 80%;
+    }
+  }
+  iframe {
+    box-shadow: 0 0 7px rgba($color-text, 0.5);
+  }
+  h1 {
+    @include heading01;
+  }
+  h2 {
+    @include heading02;
+  }
+  h3 {
+    @include heading03;
+  }
+  h4 {
+    @include heading04;
+  }
+  h5 {
+    @include heading05;
+  }
+  .wp-block-image {
+    text-align: center;
+  }
+  .wp-embedded-content {
+    margin: 30px 0 30px;
+  }
+  .calendar-wrapper {
+    margin-top: 40px;
+    position: relative;
+    width: 100%;
+    &::after {
+      display: inline-block;
+      content: "";
+      padding-top: 150%;
+      @include mq(md) {
+        padding-top: 100%;
+      }
+    }
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .is-type-video {
+    margin: 30px 0 30px;
+    & > div {
+      position: relative;
+      width: 100%;
+      @include mq(md) {
+        width: 80%;
+        margin: 0 auto;
+      }
+      &::after {
+        display: inline-block;
+        content: "";
+        padding-top: 56.25%;
+      }
+      & > iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

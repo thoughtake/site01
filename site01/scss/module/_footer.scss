@@ -1,0 +1,11 @@
+.footer {
+  height: $footer-hight;
+  color: $color-white;
+  background-color: $color-main;
+  overflow: hidden;
+  p {
+    text-align: center;
+    line-height: $footer-hight;
+    font-size: 12px;
+  }
+}

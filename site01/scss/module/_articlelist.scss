@@ -1,0 +1,178 @@
+.menu-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: $color-main;
+  text-align: center;
+  margin-bottom: 20px;
+  span {
+    display: block;
+    line-height: 1;
+    &.post-sub-title {
+      margin-top: 5px;
+      font-size: 0.6em;
+    }
+  }
+}
+.menu-lists {
+  & > li {
+    margin-bottom: 10px;
+  }
+  & > li:nth-of-type(n+2) {
+    margin-top: 20px;
+  }
+  &__list {
+    width: 100%;
+    background: transparent url(../img/square_bg.png) repeat center center/ 200px 200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    & > a {
+      display: block;
+      width: 100%;
+      position: relative;
+      .list-title {
+        position: relative;
+        font-size: 1rem;
+        font-weight: bold;
+        padding: 5px 0;
+        text-align: center;
+        background-color: $color-main-light;
+        border-radius: 10px 10px 0 0;
+        @include mq(md) {
+          font-size: 1.125rem;
+        }
+      }
+      .list-content {
+        display: flex;
+        align-items: center;
+        height: 162px;
+        padding: 15px;
+        img {
+          display: block;
+          width: 30%;
+          height: 100%;
+          object-fit: contain;
+          object-position: center center;
+        }
+        &__wrapper {
+          width: 70%;
+        }
+        .list-excerpt {
+          width: 100%;
+          height: 100px;
+          padding: 10px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          font-size: 0.875rem;
+          @include mq(md) {
+            font-size: 1rem;
+          }
+        }
+        .list-category {
+          width: 100%;
+          height: 32px;
+          padding: 0 10px;
+          font-size: 0;
+          text-align: end;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          line-height: 32px;
+          span {
+            font-size: 0.875rem;
+            background-color: $color-link-blue;
+            color: $color-white;
+            padding: 3px;
+            border-radius: 5px;
+            font-weight: bold;
+            &:nth-of-type(n+2) {
+              margin-left: 5px;
+            }
+            @include mq(md) {
+              font-size: 1rem;
+            }
+          }
+          // &__content {
+          //   background-color: #2A8840 !important;
+          //   color: $color-white !important;
+          // }
+          // &__movie {
+          //   background-color: #FF1F3D !important;
+          //   color: $color-white !important;
+          // }
+          // &__other {
+          //   background-color: #25489C !important;
+          //   color: $color-white !important;
+          // }
+          // &__voice {
+          //   background-color: #F6C863 !important;
+          //   color: $color-white !important;
+          // }
+          // &__announce {
+          //   background-color: $color-main !important;
+          //   color: $color-white !important;
+          // }
+          // &__link {
+          //   background-color: $color-link-blue !important;
+          //   color: $color-white !important;
+          // }
+        }
+      }
+    }
+    &.article {
+      & > a {
+        .list-content {
+          img {
+            display: none;
+            width: 0;
+          }
+          &__wrapper {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  
+  &.menu-article {
+    .menu-lists__list {
+      margin-top: 55px;
+      z-index: map-get($layer, 'default');
+      .list-date {
+        position: absolute;
+        top: -45px;
+        left: 10px;
+        background-color: $color-milky;
+        border-radius: 10px;
+        padding: 5px;
+        font-weight: bold;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        z-index: calc(#{map-get($layer, 'default')} + 2) ;
+        &::before {
+          position: absolute;
+          bottom: -25px;
+          right: 10px;
+          content: "";
+          border-top: 20px solid rgba(0, 0, 0, 0.25);
+          border-right: 5px solid transparent;
+          border-bottom: 5px solid transparent;
+          border-left: 5px solid transparent;
+          filter: blur(2px);
+          transform: rotate(-30deg);
+          z-index: calc(#{map-get($layer, 'default')} + 1) ;
+        }
+        &::after {
+          position: absolute;
+          bottom: -20px;
+          right: 10px;
+          content: "";
+          border-top: 20px solid $color-milky;
+          border-right: 5px solid transparent;
+          border-bottom: 5px solid transparent;
+          border-left: 5px solid transparent;
+          transform: rotate(-30deg);
+          z-index: calc(#{map-get($layer, 'default')} + 3) ;
+        }
+      }
+    }
+  }
+}

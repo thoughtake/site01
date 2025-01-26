@@ -1,0 +1,11 @@
+#wrapper {
+  padding-top: $header-hight;
+  transition: all .5s;
+  @include mq(md) {
+    position: relative;
+    padding-right: 0;
+    &.archive-open {
+      padding-right: 30%;
+    }
+  }
+}
