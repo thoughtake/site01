@@ -2,7 +2,7 @@
 このリポジトリは、過去に制作した会員サイトです。
 WordPressをベースに構築しました。
 
-screenshot
+![サイトスクリーンショット](screenshot)
 
 ## 使用技術
 - HTML
